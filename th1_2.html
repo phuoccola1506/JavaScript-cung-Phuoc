@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var n = parseInt(prompt("Nhap so n: "));
+        var T = 0;
+
+        if (n <= 50) {
+            T = n * 1549;
+            document.write("T = " + T + " dong");
+        } else if (n <= 100) {
+            T = n * 1600;
+            document.write("T = " + T + " dong");
+        } else if (n <= 200) {
+            T = n * 1858;
+            document.write("T = " + T + " dong");
+        } else if (n <= 300) {
+            T = n * 2340;
+            document.write("T = " + T + " dong");
+        } else if (n <= 400) {
+            T = n * 2615;
+            document.write("T = " + T + " dong");
+        } else {
+            T = n * 2701;
+            document.write("T = " + T + " dong");
+        }
+
+        switch (true) {
+            case (n <= 50):
+                T = n * 1549;
+                document.write("T = " + T + " dong");
+                break;
+            case (n <= 100):
+                T = n * 1600;
+                document.write("T = " + T + " dong");
+                break;
+            case (n <= 200):
+                T = n * 1858;
+                document.write("T = " + T + " dong");
+                break;
+            case (n <= 300):
+                T = n * 2340;
+                document.write("T = " + T + " dong");
+                break;
+            case (n <= 400):
+                T = n * 2615;
+                document.write("T = " + T + " dong");
+                break;
+            default:
+                T = n * 2701;
+                document.write("T = " + T + " dong");
+                break;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

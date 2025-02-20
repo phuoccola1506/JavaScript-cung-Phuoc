@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var hoTen = prompt("Nhap ho ten: ");
+        var diemThaiDo = parseFloat(prompt("Nhap diem thai do: "));
+        var diemThucHanh = parseFloat(prompt("Nhap diem thuc hanh: "));
+        var diemKiemTra = parseFloat(prompt("Nhap diem kiem tra: "));
+        var diemThi = parseFloat(prompt("Nhap diem thi: "));
+        var xepLoai = "";
+
+        if (diemThaiDo >= 1.0 && diemThucHanh >= 1.0 && diemKiemTra >= 1.0) {
+            var diemQuaTrinh = diemThaiDo * 0.2 + diemThucHanh * 0.4 + diemKiemTra * 0.4;
+            var diemMonHoc = (diemQuaTrinh + diemThi) / 2;
+
+            if (diemMonHoc >= 8.5) {
+                xepLoai = "A";
+            } else if (diemMonHoc >= 6.5) {
+                xepLoai = "B";
+            } else if (diemMonHoc >= 5.0) {
+                xepLoai = "C";
+            } else {
+                xepLoai = "D";
+            }
+
+            document.write("Ho ten: " + hoTen + "<br>");
+            document.write("Diem thai do: " + diemThaiDo + "<br>");
+            document.write("Diem thuc hanh: " + diemThucHanh + "<br>");
+            document.write("Diem kiem tra: " + diemKiemTra + "<br>");
+            document.write("Diem qua trinh: " + diemQuaTrinh + "<br>");
+            document.write("Diem thi: " + diemThi + "<br>");
+            document.write("Diem mon hoc: " + diemMonHoc + "<br>");
+            document.write("Xep loai: " + xepLoai + "<br>");
+        } else {
+            document.write("Ho ten: " + hoTen + "<br>");
+            document.write("Diem thai do: " + diemThaiDo + "<br>");
+            document.write("Diem thuc hanh: " + diemThucHanh + "<br>");
+            document.write("Diem kiem tra: " + diemKiemTra + "<br>");
+            document.write("Diem qua trinh: " + "Bi cam thi" + "<br>");
+            document.write("Diem thi: " + "N/A" + "<br>");
+            document.write("Diem mon hoc: " + "N/A" + "<br>");
+            document.write("Xep loai: " + "N/A" + "<br>");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

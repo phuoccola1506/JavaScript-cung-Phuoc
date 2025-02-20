@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = parseFloat(prompt("Nhap so a: "));
+        var b = parseFloat(prompt("Nhap so b: "));
+
+        var cd = (a > b) ? a : b;
+        var cr = (a < b) ? a : b;
+
+        var P = 2 * (cd + cr);
+        var S = cd * cr;
+
+        if (cd != 0 && cr != 0) {
+            document.write("Chieu dai hinh chu nhat la: " + cd + "<br>");
+            document.write("Chieu rong hinh chu nhat la: " + cr + "<br>");
+            document.write("Chu vi hinh chu nhat la: " + P + "<br>");
+            document.write("Dien tich hinh chu nhat la: " + S + "<br>");
+            window.alert("Chieu dai hinh chu nhat la: " + cd + "\nChieu rong hinh chu nhat la: " + cr + "\nChu vi hinh chu nhat la: " + P + "\nDien tich hinh chu nhat la: " + S);
+            // window.alert("Chu vi hinh chu nhat la: " + P + "\nDien tich hinh chu nhat la: " + S);
+        } else {
+            window.alert("Nhap lai gia tri cd, cr khac 0");
+        }
+        
+        if (cd == cr) {
+            document.write("Day la hinh vuong");
+            // window.alert("Day la hinh vuong");
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
