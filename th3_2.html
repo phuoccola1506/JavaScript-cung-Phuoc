@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table id="bangDiem" border="1">
+        <tr>
+            <th>STT</th>
+            <th>Điểm Quá Trình</th>
+            <th>Điểm Thi</th>
+            <th>Điểm Tổng</th>
+        </tr>
+    </table>
+
+    <script>
+        function tinhDiemTong(diemqt, diemthi) {
+            tong = (diemqt + diemthi) / 2;
+            return tong;
+        }
+
+        function inBangDiem(diemQT, diemThi, diemTong) {
+            var table = document.getElementById("bangDiem");
+            for (var i = 0; i < diemQT.length; i++) {
+                var row = table.insertRow();
+                row.insertCell(0).innerHTML = i + 1;
+                row.insertCell(1).innerHTML = diemQT[i];
+                row.insertCell(2).innerHTML = diemThi[i];
+                row.insertCell(3).innerHTML = diemTong[i];
+            }
+        }
+
+        var n = parseInt(prompt("Nhập số lượng sinh viên: "));
+        var diemQT = [];
+        var diemThi = [];
+        var diemTong = [];
+        for (i = 0; i < n; i++) {
+            diemQT.push(parseFloat(prompt("Nhập điểm quá trình của sinh viên thứ " + (i + 1) + ": ")));
+            diemThi.push(parseFloat(prompt("Nhập điểm thi của sinh viên thứ " + (i + 1) + ": ")));
+            diemTong.push(tinhDiemTong(diemQT[i], diemThi[i]));
+        }
+
+        inBangDiem(diemQT, diemThi, diemTong);
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Bảng điểm sinh viên</h1>
+    <table id="bangDiem" border="1">
+        <tr>
+            <th>STT</th>
+            <th>Họ Tên</th>
+            <th>Điểm Quá Trình</th>
+            <th>Điểm Thi</th>
+            <th>Điểm Tổng</th>
+        </tr>
+    </table>
+
+    <h1>Danh sách sinh viên đạt học bổng</h1>
+    <table id="hocBong" border="1">
+        <tr>
+            <th>STT</th>
+            <th>Họ Tên</th>
+            <th>Điểm Tổng</th>
+        </tr>
+    </table>
+
+    <script>
+        function tinhDiemTong(diemqt, diemthi) {
+            tong = (diemqt + diemthi) / 2;
+            return tong;
+        }
+
+        function inBangDiem(sinhVien) {
+            var table = document.getElementById("bangDiem");
+            for (var i = 0; i < sinhVien.length; i++) {
+                var row = table.insertRow();
+                row.insertCell(0).innerHTML = i + 1;
+                row.insertCell(1).innerHTML = sinhVien[i].hoTen;
+                row.insertCell(2).innerHTML = sinhVien[i].diemQT;
+                row.insertCell(3).innerHTML = sinhVien[i].diemThi;
+                row.insertCell(4).innerHTML = sinhVien[i].diemTong.toFixed(2);
+            }
+        }
+
+        function inHocBong(sinhVien) {
+            var table = document.getElementById("hocBong");
+
+            // Sắp xếp sinh viên theo điểm tổng từ cao đến thấp
+            sinhVien.sort(function(a, b) {
+                return b.diemTong - a.diemTong;
+            });
+
+            // Thêm sinh viên vào bảng học bổng
+            for (var i = 0; i < sinhVien.length; i++) {
+                var row = table.insertRow();
+                row.insertCell(0).innerHTML = i + 1;
+                row.insertCell(1).innerHTML = sinhVien[i].hoTen;
+                row.insertCell(2).innerHTML = sinhVien[i].diemTong.toFixed(2);
+            }
+        }
+
+        var n = parseInt(prompt("Nhập số lượng sinh viên: "));
+        var sinhVien = [];
+        for (i = 0; i < n; i++) {
+            var hotenSV = prompt("Nhập họ tên sinh viên thứ " + (i + 1) + ": ");
+            var diemQT = parseFloat(prompt("Nhập điểm quá trình của sinh viên thứ " + (i + 1) + ": "));
+            var diemThi = parseFloat(prompt("Nhập điểm thi của sinh viên thứ " + (i + 1) + ": "));
+            sinhVien.push({
+                hoTen: hotenSV,
+                diemQT: diemQT,
+                diemThi: diemThi,
+                diemTong: tinhDiemTong(diemQT, diemThi)
+            });
+        }
+
+        inBangDiem(sinhVien);
+        inHocBong(sinhVien);
+
+    </script>
+
+</body>
+</html>

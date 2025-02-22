@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function xepLoai(diem) {
+            if (diem >= 8.5) {
+                return "A";
+            } else if (diem >= 7) {
+                return "B";
+            } else if (diem >= 5.5) {
+                return "C";
+            } else if (diem >= 4) {
+                return "D";
+            } else {
+                return "F";
+            }
+        }
+
+        function inDsSinhVien(diem, xepLoaiSV) {
+            for (var i = 0; i < diem.length; i++) {
+                document.write("Sinh viên thứ " + (i + 1) + ", Điểm: " + diem[i] + ", Xếp loại: " + xepLoaiSV[i] + "<br>");
+            }
+        }
+
+        function DTB(diem) {
+            var sum = 0;
+            for (var i = 0; i < diem.length; i++) {
+                sum += diem[i];
+            }
+            return sum / diem.length;
+        }
+
+        function Max(n, diemSV) {
+            var max = diemSV[0];
+            for (var i = 1; i < n; i++) {
+                if (diemSV[i] > max) {
+                    max = diemSV[i];
+                }
+            }
+            return max;
+        }
+
+        function CountSVThiLai(diemSV) {
+            var count = 0;
+            for (var i = 0; i < diemSV.length; i++) {
+                if (diemSV[i] < 4) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        function CountSVGioi(diemSV) {
+            var count = 0;
+            for (var i = 0; i < diemSV.length; i++) {
+                if (diemSV[i] >= 8.5) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        var n = parseInt(prompt("Nhập số lượng sinh viên: "));
+        var diemSV = [];
+        var xepLoaiSV = [];
+        for (var i = 0; i < n; i++) {
+            var diem = parseFloat(prompt("Nhập điểm sinh viên thứ " + (i + 1) + ": "));
+            var loai = xepLoai(diem);
+            diemSV.push(diem);          
+            xepLoaiSV.push(loai);
+        }
+
+        inDsSinhVien(diemSV, xepLoaiSV);
+        document.write("Điểm trung bình: " + DTB(diemSV).toFixed(2) + "<br>");
+        document.write("Điểm cao nhất: " + Max(n, diemSV) + "<br>");
+        document.write("Số lượng sinh viên thi lại: " + CountSVThiLai(diemSV) + "<br>");
+        document.write("Số lượng sinh viên giỏi: " + CountSVGioi(diemSV) + "<br>");
+
+    </script>
+</body>
+</html>
